@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>Part2-Analysis.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,9 +73,7 @@ h6 {
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -100,6 +98,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -114,7 +115,6 @@ body {
   padding-top: 71px;
   margin-top: -71px;
 }
-
 .section h2 {
   padding-top: 71px;
   margin-top: -71px;
@@ -134,6 +134,43 @@ body {
 .section h6 {
   padding-top: 71px;
   margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -155,18 +192,75 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -261,6 +355,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -353,13 +457,15 @@ div.tocify {
 <h2>Step 1: Working Directories</h2>
 <p>A working directory is the folder on your computer where you are currently working. You can find out your current working directory by typing <code>getwd()</code></p>
 <pre class="r"><code>&gt; getwd()</code></pre>
-<pre><code>[1] &quot;/Users/nikitagambhir/Desktop/IntroR_2019&quot;</code></pre>
+<pre><code>[1] &quot;C:/Users/luckymehra/OneDrive - Kansas State University/REEU/Intro_R_2019_REEU&quot;</code></pre>
 <p>If you’ve downloaded and un-zipped this directory to your desktop, you might see something like <code>/Users/&lt;yourname&gt;/Desktop/IntroR_2019</code>. This is the default place where R will begin reading and writing files. For example, you can use the function <code>list.files()</code> to view the files in your current working directory. These are the same files that we downloaded earlier. If you’re using Rstudio, you can compare the file list with the “Files” tab in the bottom right panel.</p>
 <p>In order to use <code>list.files()</code>, we should provide it with a file path. We can provide it a “.”, which means “here” to most computer programs.</p>
 <pre class="r"><code>&gt; list.files(&quot;.&quot;)</code></pre>
-<pre><code>[1] &quot;data&quot;                  &quot;docs&quot;                  &quot;IntroR_2019.Rproj&quot;    
-[4] &quot;LICENSE&quot;               &quot;Makefile&quot;              &quot;Part1-Introduction.R&quot; 
-[7] &quot;Part2-Analysis.R&quot;      &quot;Part3-Visualization.R&quot; &quot;README.md&quot;            </code></pre>
+<pre><code>[1] &quot;data&quot;                    &quot;docs&quot;                   
+[3] &quot;Intro_R_2019_REEU.Rproj&quot; &quot;LICENSE&quot;                
+[5] &quot;Makefile&quot;                &quot;Part1-Introduction.R&quot;   
+[7] &quot;Part2-Analysis.R&quot;        &quot;Part3-Visualization.R&quot;  
+[9] &quot;README.md&quot;              </code></pre>
 <p>You can see that the first entry in here is “data”. This is where we’ve placed the field_data example data.</p>
 <pre class="r"><code>&gt; list.files(&quot;data&quot;)</code></pre>
 <pre><code>[1] &quot;fungicide_dat.csv&quot; &quot;README.md&quot;        </code></pre>
@@ -369,6 +475,7 @@ div.tocify {
 <p>We can use the <code>read.csv()</code> function to read (or import) these data into R. It’s important to remember that while in R, these data are simply a copy kept <em>in memory</em>, not on the disk, so we don’t have to worry too much about accidentally deleting the data :).</p>
 <p>So, how do we actually USE the <code>read.csv()</code> function?</p>
 <pre class="r"><code>&gt; ?read.csv</code></pre>
+<pre><code>starting httpd help server ... done</code></pre>
 <p>You will notice that the help page describes all the sibling functions, too: <code>read.table()</code>, <code>read.csv2()</code>, <code>read.delim()</code>, <code>read.delim2()</code>. Let’s read the Description and Usage first. All arguments except ‘file’ have a default value (e.g. header = TRUE). You do not need to specify these arguments unless you want to change the default. Let’s use <code>read.csv()</code> with the default values.</p>
 <pre class="r"><code>&gt; read.csv(&quot;data/fungicide_dat.csv&quot;)</code></pre>
 <pre><code>     Treatment Yield_bu_per_acre Severity
@@ -415,7 +522,7 @@ div.tocify {
 <p>This has two issues:</p>
 <ol style="list-style-type: decimal">
 <li>The column names are treated as the first row. This is because the default for header is FALSE in <code>read.table()</code>. We should change to header = TRUE.</li>
-<li>The data is presented as one column, ‘V1’. This is because the separator for each cell in the data is a “,” and not “” (space). We should change to sep = “,”.</li>
+<li>The data is presented as one column, ‘V1’. This is because the separator for each cell in the data is a “,” and not "" (space). We should change to sep = “,”.</li>
 </ol>
 <pre class="r"><code>&gt; read.table(&quot;data/fungicide_dat.csv&quot;, header = TRUE, sep = &quot;,&quot;)</code></pre>
 <pre><code>     Treatment Yield_bu_per_acre Severity
@@ -485,10 +592,10 @@ div.tocify {
 <div id="step-3-advanced-data-manipulation" class="section level2">
 <h2>Step 3: Advanced data manipulation</h2>
 <p>The package ‘dplyr’ provides functions for easy and advanced data manipulation. If we want to use it, we can download the package to our computer with the function <code>install.packages()</code>. This will install a package from CRAN and place it into your R <em>Library</em>.</p>
-<pre class="r"><code>&gt; install.packages(&quot;dplyr&quot;, repos = &quot;https://cran.rstudio.com&quot;)</code></pre>
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/y1/z82xd0b501193md_9_d3vs9r0000gn/T//RtmpbRvnIM/downloaded_packages</code></pre>
+<pre class="r"><code>&gt; install.packages(&quot;dplyr&quot;)</code></pre>
+<pre><code>Installing package into &#39;C:/Users/luckymehra/Documents/R/win-library/3.6&#39;
+(as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>Error in contrib.url(repos, &quot;source&quot;): trying to use CRAN without setting a mirror</code></pre>
 <p>To load this package, we can use the function <code>library()</code>.</p>
 <pre class="r"><code>&gt; library(&quot;dplyr&quot;)</code></pre>
 <pre><code>

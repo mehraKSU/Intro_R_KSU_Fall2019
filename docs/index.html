@@ -11,7 +11,7 @@
 
 
 
-<title>Introduction to R</title>
+<title>R for Plant Pathologists</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,9 +73,7 @@ h6 {
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -100,6 +98,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -114,7 +115,6 @@ body {
   padding-top: 71px;
   margin-top: -71px;
 }
-
 .section h2 {
   padding-top: 71px;
   margin-top: -71px;
@@ -134,6 +134,43 @@ body {
 .section h6 {
   padding-top: 71px;
   margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -155,18 +192,75 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -261,6 +355,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -336,13 +440,13 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to R</h1>
+<h1 class="title toc-ignore">R for Plant Pathologists</h1>
 
 </div>
 
 
-<p>An introduction to R written by Dr. Sydney E. Everhart, Nikita Gambhir, Dr. Lucky Mehra, and Dr. Zhian N. Kamvar.</p>
-<p>This repository is intended to serve as an additional resource for short workshops given at Univeristy of Nebraska and the American Phytopathological Society (APS) meetings. The source code can be found at <a href="https://github.com/everhartlab/IntroR_2019" class="uri">https://github.com/everhartlab/IntroR_2019</a>.</p>
+<p>An introduction to R for plant pathologists written by Dr. Sydney E. Everhart, Nikita Gambhir, Dr. Lucky Mehra, and Dr. Zhian N. Kamvar.</p>
+<p>This repository is intended to serve as an additional resource for short workshops given at Kansas State Univeristy. The source code can be found at <a href="https://github.com/mehraKSU/Intro_R_2019_REEU" class="uri">https://github.com/mehraKSU/Intro_R_2019_REEU</a>.</p>
 <div id="about" class="section level2">
 <h2>About</h2>
 <p>This introduction to R is designed to be a companion to a workshop lasting 4 hours introducing plant pathologists to the basics of R by using field data example.</p>
@@ -362,13 +466,13 @@ div.tocify {
 </div>
 <div id="website" class="section level2">
 <h2>Website</h2>
-<p>This website is meant to serve as a companion to the workshop. The pages located in the <strong>Workshop</strong> tab are rendered versions of R scripts located in the top level of <a href="https://github.com/everhartlab/IntroR_2019" class="uri">https://github.com/everhartlab/IntroR_2019</a>. As the workshop is designed to be interactive where the participants are given some control over what direction we should take the analyses, the scripts here are only to serve as guidelines.</p>
+<p>This website is meant to serve as a companion to the workshop. The pages located in the <strong>Workshop</strong> tab are rendered versions of R scripts located in the top level of <a href="https://github.com/mehraKSU/Intro_R_2019_REEU" class="uri">https://github.com/mehraKSU/Intro_R_2019_REEU</a>. As the workshop is designed to be interactive where the participants are given some control over what direction we should take the analyses, the scripts here are only to serve as guidelines.</p>
 <p>These scripts follow these conventions:</p>
 <ul>
 <li>R code is presented how it would appear in the R console with the first line prefixed with <code>&gt;</code> and subsequent lines prefixed with <code>+</code>. The intent is to encourage the user to type the commands instead of copy and paste.</li>
 <li>There will be instances where we will have exercise questions. These are points in the workshop where we stop the participants and ask them to figure out the working of a function or find a suitable function to answer the illustrated problem.</li>
 </ul>
-<p>The website located at <a href="https://everhartlab.github.io/IntroR_2019/" class="uri">https://everhartlab.github.io/IntroR_2019/</a> can be build via the <code>make</code> program:</p>
+<p>The website located at <a href="https://mehraksu.github.io/Intro_R_2019_REEU/" class="uri">https://mehraksu.github.io/Intro_R_2019_REEU/</a> can be build via the <code>make</code> program:</p>
 <pre class="make"><code>make clean # run this to build the site from scratch
 make</code></pre>
 <p>Note: if the README.md is changed, make will force-update the index.Rmd and in turn force update the corresponding HTML.</p>

@@ -103,7 +103,7 @@ c = 3   # we can also use `=` to assign 3 to c. But `<-` is the preferred assign
 # the first character and try to interpret the entire name as a mathematical
 # term.  Try this:
 
-2foxes <- 1   
+# 2foxes <- 1   
 
 # The error here tells us that something went wrong and R cannot proceed.
 # 

@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>Part1-Introduction.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,9 +73,7 @@ h6 {
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -100,6 +98,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -114,7 +115,6 @@ body {
   padding-top: 71px;
   margin-top: -71px;
 }
-
 .section h2 {
   padding-top: 71px;
   margin-top: -71px;
@@ -134,6 +134,43 @@ body {
 .section h6 {
   padding-top: 71px;
   margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -155,18 +192,75 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -260,6 +354,16 @@ div.tocify {
 }
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -400,12 +504,8 @@ div.tocify {
 <p>Now we can execute our calculation using objects instead of numbers. Try it!</p>
 <pre class="r"><code>&gt; (a+b)/c</code></pre>
 <pre><code>[1] 2</code></pre>
-<p>Avoid creating object names that start with a number because R will look at the first character and try to interpret the entire name as a mathematical term. Try this:</p>
-<pre class="r"><code>&gt; 2foxes &lt;- 1   </code></pre>
-<pre><code>Error: &lt;text&gt;:1:2: unexpected symbol
-1: 2foxes
-     ^</code></pre>
-<p>The error here tells us that something went wrong and R cannot proceed.</p>
+<p>Avoid creating object names that start with a number because R will look at the first character and try to interpret the entire name as a mathematical term. Try this: 2foxes &lt;- 1<br />
+The error here tells us that something went wrong and R cannot proceed.</p>
 <p>If we want to assign (a+b)/c to a new object called <code>answer</code> – what will the object contain? Find out:</p>
 <pre class="r"><code>&gt; answer &lt;- (a+b)/c</code></pre>
 <p>Take a look at the object <code>answer</code> by typing the name into the command line:</p>
@@ -717,7 +817,7 @@ except for the 31st row and all the columns of that row.</p>
  $ day  : int  1 2 3 4 5 6 7 8 9 10 ...
  $ month: num  4 4 4 4 4 4 4 4 4 4 ...
  $ year : num  2019 2019 2019 2019 2019 ...</code></pre>
-<p>Let’s combine both of these tables into one. R provides two functions that can help us with that called <code>rbind()</code> and <code>cbind()</code>, which bind a data frame with a vector (or another data frame) by rows and columns, respectively. Which one should we use? If you’re unsure, try both!</p>
+<p>Let’s combine both of these tables into one. R provides two functions that can help us with that called <code>rbind()</code> and <code>cbind()</code>, which bind a data frame with a vector (or another data frame) by rows and columns, respectively. Which one should we use? If youâ€™re unsure, try both!</p>
 <div id="exercise-3-use-cbind-and-rbind-to-figure-out-the-correct" class="section level3">
 <h3>Exercise 3: Use <code>cbind()</code> and <code>rbind()</code> to figure out the correct</h3>
 </div>
@@ -831,8 +931,9 @@ except for the 31st row and all the columns of that row.</p>
 <p>Notice that we used <code>-c(1:31)</code>, what do you think this is doing? Why would this give us the values for the month of April?</p>
 </blockquote>
 <p>We can use the <code>ifelse()</code> function to replace the values in our column. How do we use this function? A good first step to figuring out how you can use a function is to look at its help page. The way you can do that is by typing<br />
-either <code>help(&quot;function_name&quot;)</code> or <code>?function_name</code>.</p>
+either <code>help("function_name")</code> or <code>?function_name</code>.</p>
 <pre class="r"><code>&gt; ?ifelse</code></pre>
+<pre><code>starting httpd help server ... done</code></pre>
 </div>
 <div id="exercise-4-type-ifelse-and-answer-these-three-questions" class="section level3">
 <h3>Exercise 4: Type <code>?ifelse</code> and answer these three questions:</h3>
