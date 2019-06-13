@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -23,7 +23,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -107,33 +107,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 66px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -702,45 +702,43 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>Installing package into &#39;C:/Users/luckymehra/Documents/R/win-library/3.6&#39;
 (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>Error in contrib.url(repos, &quot;source&quot;): trying to use CRAN without setting a mirror</code></pre>
-<pre class="r"><code>&gt; library(&quot;plotrix&quot;)</code></pre>
-<pre><code>Error in library(&quot;plotrix&quot;): there is no package called &#39;plotrix&#39;</code></pre>
-<pre class="r"><code>&gt; fungicide_m_se &lt;- fungicide %&gt;%
+<pre class="r"><code>&gt; library(&quot;plotrix&quot;)
+&gt; 
+&gt; fungicide_m_se &lt;- fungicide %&gt;%
 +   select(Treatment, Severity) %&gt;%
 +   group_by(Treatment) %&gt;%
 +   summarise(mean_sev = mean(Severity),
 +             se_sev = std.error(Severity))</code></pre>
-<pre><code>Error in std.error(Severity): could not find function &quot;std.error&quot;</code></pre>
 <p>Now, we can create a plot with mean and standard error</p>
 <pre class="r"><code>&gt; m_se_plot &lt;- ggplot(data = fungicide_m_se,
 +                     aes(x = Treatment,
-+                         y = mean_sev))</code></pre>
-<pre><code>Error in ggplot(data = fungicide_m_se, aes(x = Treatment, y = mean_sev)): object &#39;fungicide_m_se&#39; not found</code></pre>
-<pre class="r"><code>&gt; m_se_plot  </code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;m_se_plot&#39; not found</code></pre>
++                         y = mean_sev))
+&gt; m_se_plot  </code></pre>
+<p><img src="Part3-Visualization_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <div id="bar-graph-with-standard-errors" class="section level3">
 <h3>Bar graph with standard errors</h3>
 <pre class="r"><code>&gt; (m_se_plot_bar &lt;- m_se_plot + 
 +     geom_col(aes(fill = Treatment),
 +              width = 0.5)) </code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;m_se_plot&#39; not found</code></pre>
+<p><img src="Part3-Visualization_files/figure-html/unnamed-chunk-25-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>&gt; (m_se_plot_bar &lt;- m_se_plot_bar +
 +     geom_errorbar(aes(ymin = mean_sev - se_sev,
 +                       ymax = mean_sev + se_sev),
 +                   width = 0.2)) </code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;m_se_plot_bar&#39; not found</code></pre>
+<p><img src="Part3-Visualization_files/figure-html/unnamed-chunk-25-2.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="point-plot-with-standard-errors" class="section level3">
 <h3>Point plot with standard errors</h3>
 <pre class="r"><code>&gt; (m_se_plot_point &lt;- m_se_plot + 
 +     geom_point(aes(color = Treatment),
 +                size = 3))</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;m_se_plot&#39; not found</code></pre>
+<p><img src="Part3-Visualization_files/figure-html/unnamed-chunk-26-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>&gt; (m_se_plot_point &lt;- m_se_plot_point + 
 +     geom_errorbar(aes(ymin = mean_sev - se_sev,
 +                       ymax = mean_sev + se_sev,
 +                       color = Treatment),
 +                   width = 0.1))</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;m_se_plot_point&#39; not found</code></pre>
+<p><img src="Part3-Visualization_files/figure-html/unnamed-chunk-26-2.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>You can follow the same steps that we followed for <code>yield.plot</code> to transform these plots to publication quality.</p>
 </div>
 </div>

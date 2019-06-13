@@ -18,9 +18,7 @@ title: "References"
    Phylogenetics, Time Series, Experimental Design, etc.
  - [Happy Git and GitHub for the useR] a long-form tutorial on working
    reproducibly in R and RStudio with Git and GitHub
- - [Sampling, Data Management and Visualization] UNL Course led by Dr. Drew Tyre
- - [Data Camp] Interactive courses on R (Some are free)
- 
+
 # Twitter 
 
 Twitter is a great resource for getting help in R. You can browse the \#rstats
@@ -47,9 +45,7 @@ These accounts are great to follow to see what's going on in R
 [swirl]: http://swirlstats.com/
 [tidyverse]: http://tidyverse.org/
 [CRAN task views]: https://cran.r-project.org/web/views/
-[UNL Statistics Help Desk]: http://statistics.unl.edu/help-desk-form
 [Sampling, Data Management and Visualization]: https://atyre2.github.io/data-management/ 
 [R style guide]: http://style.tidyverse.org/
 [RStudio Cheat Sheets]: https://www.rstudio.com/resources/cheatsheets/
 [R for Beginners]: https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf
-[Data Camp]: https://www.datacamp.com/onboarding/learn?technology=r
