@@ -26,6 +26,8 @@
 
 print("the instructor's name is Lucky")  
 
+print("Teaching assistant's name is Nar")
+
 # Run a single line of your script in the console by placing your cursor on the 
 # line you want to submit and use your cursor to press the "Run" button at the 
 # top right. You can also use the shortcut key strokes cmd+enter (mac) or 
