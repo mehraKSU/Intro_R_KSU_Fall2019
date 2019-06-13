@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -23,7 +23,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -107,33 +107,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 66px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 71px;
-  margin-top: -71px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -458,14 +458,15 @@ div.tocify {
 <p>A working directory is the folder on your computer where you are currently working. You can find out your current working directory by typing <code>getwd()</code></p>
 <pre class="r"><code>&gt; getwd()</code></pre>
 <pre><code>[1] &quot;C:/Users/luckymehra/OneDrive - Kansas State University/REEU/Intro_R_2019_REEU&quot;</code></pre>
-<p>If you’ve downloaded and un-zipped this directory to your desktop, you might see something like <code>/Users/&lt;yourname&gt;/Desktop/IntroR_2019</code>. This is the default place where R will begin reading and writing files. For example, you can use the function <code>list.files()</code> to view the files in your current working directory. These are the same files that we downloaded earlier. If you’re using Rstudio, you can compare the file list with the “Files” tab in the bottom right panel.</p>
+<p>If you’ve downloaded and un-zipped this directory to your desktop, you might see something like <code>/Users/&lt;yourname&gt;/Desktop/Intro_R_2019_REEU</code>. This is the default place where R will begin reading and writing files. For example, you can use the function <code>list.files()</code> to view the files in your current working directory. These are the same files that we downloaded earlier. If you’re using Rstudio, you can compare the file list with the “Files” tab in the bottom right panel.</p>
 <p>In order to use <code>list.files()</code>, we should provide it with a file path. We can provide it a “.”, which means “here” to most computer programs.</p>
 <pre class="r"><code>&gt; list.files(&quot;.&quot;)</code></pre>
-<pre><code>[1] &quot;data&quot;                    &quot;docs&quot;                   
-[3] &quot;Intro_R_2019_REEU.Rproj&quot; &quot;LICENSE&quot;                
-[5] &quot;Makefile&quot;                &quot;Part1-Introduction.R&quot;   
-[7] &quot;Part2-Analysis.R&quot;        &quot;Part3-Visualization.R&quot;  
-[9] &quot;README.md&quot;              </code></pre>
+<pre><code> [1] &quot;data&quot;                    &quot;docs&quot;                   
+ [3] &quot;Intro_R_2019_REEU.Rproj&quot; &quot;LICENSE&quot;                
+ [5] &quot;Makefile&quot;                &quot;Part1-Introduction.html&quot;
+ [7] &quot;Part1-Introduction.R&quot;    &quot;Part2-Analysis.R&quot;       
+ [9] &quot;Part3-Visualization.R&quot;   &quot;README.html&quot;            
+[11] &quot;README.md&quot;              </code></pre>
 <p>You can see that the first entry in here is “data”. This is where we’ve placed the field_data example data.</p>
 <pre class="r"><code>&gt; list.files(&quot;data&quot;)</code></pre>
 <pre><code>[1] &quot;fungicide_dat.csv&quot; &quot;README.md&quot;        </code></pre>
@@ -716,10 +717,15 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 3 Fungicide_B     11035.</code></pre>
 <p>Instead of creating different objects everytime, we can perform multiple functions at once and create one final object. We use the pipe operator, %&gt;% , for this purpose. The left hand side of %&gt;% acts as the input on which an operation on the right side is performed. A shortcut to write %&gt;% is <code>ctrl+shift+m</code>.</p>
 <pre class="r"><code>&gt; yield_summary &lt;- field_data %&gt;% 
++   
 +   mutate(Yield_kg_per_ha = Yield_bu_per_acre*62.77) %&gt;%  
++   
 +   select(Treatment, Yield_kg_per_ha) %&gt;% 
++   
 +   group_by(Treatment) %&gt;% 
++   
 +   summarise(Mean_yield = mean(Yield_kg_per_ha))
+&gt; 
 &gt; yield_summary</code></pre>
 <pre><code># A tibble: 3 x 2
   Treatment   Mean_yield
@@ -793,9 +799,13 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 <p>The treatment column should not be equal to (<code>!=</code>) to Fungicide_A. So, it will have everything except Fungicide A (“Control” and “Fungicide_B”).</p>
 <p>After filtering, we need to add a column <code>Percent_Severity</code>, where severity is measured in percent and not on a scale of 1 to 10. Any guess on which function should we use? Let’s perform all operations in one go.</p>
 <pre class="r"><code>&gt; severity_dat &lt;- field_data %&gt;% 
++   
 +   filter(Treatment == &quot;Control&quot; | Treatment == &quot;Fungicide_B&quot;) %&gt;% 
++   
 +   mutate(Percent_Severity = Severity/10*100) %&gt;% 
++   
 +   select(Treatment, Percent_Severity)
+&gt; 
 &gt; severity_dat</code></pre>
 <pre><code>     Treatment Percent_Severity
 1      Control               55

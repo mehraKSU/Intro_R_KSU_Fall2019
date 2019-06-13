@@ -6,15 +6,15 @@ title: "R for Plant Pathologists"
 -->
 
 
-An introduction to R for plant pathologists written by Dr. Sydney E. Everhart, Nikita Gambhir, Dr. Lucky Mehra, and Dr. Zhian N. Kamvar.
+An introduction to R for plant pathologists written by Dr. Sydney E. Everhart, Nikita Gambhir, Dr. Lucky Mehra, and Dr. Zhian N. Kamvar. At Kansas State Unversity, the workshop was presented by Dr. Lucky Mehra, Dr. Daljit Singh, Dyland Mangel, and Nar Ranabhat.
 
-This repository is intended to serve as an additional resource for short 
-workshops given at Kansas State Univeristy. The source code can be found at https://github.com/mehraKSU/Intro_R_2019_REEU.
+This repository is intended to serve as an additional resource for a short 
+workshop given at Kansas State Univeristy. The source code can be found at https://github.com/mehraKSU/Intro_R_2019_REEU.
 
 ## About 
 
 This introduction to R is designed to be a companion to a workshop lasting 4 
-hours introducing plant pathologists to the basics of R by using field data example. 
+hours introducing plant pathologists to the basics of R by using a field data example. 
 
 ## Goals
 
@@ -56,6 +56,7 @@ The website located at  https://mehraksu.github.io/Intro_R_2019_REEU/ can be bui
 make clean # run this to build the site from scratch
 make
 ```
+You can also go to *Environment, History,....* pane in RStudio, click *Build* > *More* > *Clean and Rebuild* to make the website from scratch.
 
 Note: if the README.md is changed, make will force-update the index.Rmd and in
 turn force update the corresponding HTML.
