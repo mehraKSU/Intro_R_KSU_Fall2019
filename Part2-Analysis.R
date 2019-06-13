@@ -19,7 +19,7 @@
 getwd()
 
 # If you've downloaded and un-zipped this directory to your desktop, you might
-# see something like `/Users/<yourname>/Desktop/IntroR_2019`. This is the
+# see something like `/Users/<yourname>/Desktop/Intro_R_2019_REEU`. This is the
 # default place where R will begin reading and writing files. For example, you
 # can use the function `list.files()` to view the files in your current working
 # directory. These are the same files that we downloaded earlier. If you're
@@ -189,10 +189,15 @@ mean_yield_dat
 # is performed. A shortcut to write %>% is `ctrl+shift+m`.
 
 yield_summary <- field_data %>% 
+  
   mutate(Yield_kg_per_ha = Yield_bu_per_acre*62.77) %>%  
+  
   select(Treatment, Yield_kg_per_ha) %>% 
+  
   group_by(Treatment) %>% 
+  
   summarise(Mean_yield = mean(Yield_kg_per_ha))
+
 yield_summary
 View(yield_summary)
 
@@ -243,9 +248,13 @@ filter(field_data, Treatment != "Fungicide_A")
 # Let's perform all operations in one go.
 
 severity_dat <- field_data %>% 
+  
   filter(Treatment == "Control" | Treatment == "Fungicide_B") %>% 
+  
   mutate(Percent_Severity = Severity/10*100) %>% 
+  
   select(Treatment, Percent_Severity)
+
 severity_dat
 
 # We do not see a column for the number of replications for each treatment.
