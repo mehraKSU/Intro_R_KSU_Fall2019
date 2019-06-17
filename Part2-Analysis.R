@@ -110,7 +110,10 @@ str(field_data)
 # The package 'dplyr' provides functions for easy and advanced data manipulation.
 # If we want to use it, we can download the package to our computer with the 
 # function `install.packages()`. This will install a package from CRAN and place
-# it into your R *Library*.
+# it into your R *Library*. Sometimes other R packages have function naming conflicts 
+# with dplyr functions (e.g. select, mutate etc.). So if you encounter any function 
+# conflict, use `dplyr::select` or `dplyr::mutate` to explicitely call the dplyr 
+# package functions.
 
 install.packages("dplyr")
 
