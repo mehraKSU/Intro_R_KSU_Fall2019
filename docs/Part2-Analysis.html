@@ -426,7 +426,7 @@ div.tocify {
   <a href="about.html">About</a>
 </li>
 <li>
-  <a href="https://docs.google.com/forms/d/1RzOZBbHZ1kZEzpAcaATrD9bZZa2yea3fNF4J6a_0ioA">Feedback Survey</a>
+  <a href="https://kstate.qualtrics.com/jfe/form/SV_cGwPDVUjIlu9epn">Feedback Survey</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -592,7 +592,7 @@ div.tocify {
 </div>
 <div id="step-3-advanced-data-manipulation" class="section level2">
 <h2>Step 3: Advanced data manipulation</h2>
-<p>The package ‘dplyr’ provides functions for easy and advanced data manipulation. If we want to use it, we can download the package to our computer with the function <code>install.packages()</code>. This will install a package from CRAN and place it into your R <em>Library</em>.</p>
+<p>The package ‘dplyr’ provides functions for easy and advanced data manipulation. If we want to use it, we can download the package to our computer with the function <code>install.packages()</code>. This will install a package from CRAN and place it into your R <em>Library</em>. Sometimes other R packages have function naming conflicts with dplyr functions (e.g. select, mutate etc.). So if you encounter any function conflict, use <code>dplyr::select</code> or <code>dplyr::mutate</code> to explicitely call the dplyr package functions.</p>
 <pre class="r"><code>&gt; install.packages(&quot;dplyr&quot;)</code></pre>
 <pre><code>Installing package into &#39;C:/Users/luckymehra/Documents/R/win-library/3.6&#39;
 (as &#39;lib&#39; is unspecified)</code></pre>
