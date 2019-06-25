@@ -381,5 +381,7 @@ m_se_plot
                   width = 0.1))
 
 # You can follow the same steps that we followed for `yield.plot` to transform these
-# plots to publication quality.
+# plots to publication quality. To learn more about the publication ready graphics
+# you can refer to another very useful R package `ggpubr` 
+# (https://rpkgs.datanovia.com/ggpubr/index.html).  
   
