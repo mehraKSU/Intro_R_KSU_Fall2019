@@ -27,7 +27,7 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Feedback Survey"
-      href: https://docs.google.com/forms/d/1RzOZBbHZ1kZEzpAcaATrD9bZZa2yea3fNF4J6a_0ioA
+      href: https://kstate.qualtrics.com/jfe/form/SV_cGwPDVUjIlu9epn
 #      menu:
 #        - text: "Exit Survey"
 #          href: https://goo.gl/forms/oDBV8WPXg7DlsS4C3
