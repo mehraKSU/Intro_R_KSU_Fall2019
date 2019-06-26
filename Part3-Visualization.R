@@ -321,7 +321,10 @@ severity.plot
 # function, which allows us to save it as a pdf, png, svg, eps, etc. file.
 # Or, we can click on 'Export' (button just above the plot) and save it. 
 
-ggsave(filename = "results/figure1.pdf", width = 88, units = "mm")
+# Create a folder called 'results' to save the graph into
+dir.create("results")
+
+ggsave(filename = "results/figure1.png", width = 130, units = "mm")
 
 # 
 # Step 3: Plotting with mean and error bars

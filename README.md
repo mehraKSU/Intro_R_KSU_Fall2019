@@ -6,7 +6,7 @@ title: "R for Plant Pathologists"
 -->
 
 
-An introduction to R for plant pathologists written by Dr. Sydney E. Everhart, Nikita Gambhir, Dr. Lucky Mehra, and Dr. Zhian N. Kamvar. At Kansas State Unversity, the workshop was presented by Dr. Lucky Mehra, Dr. Daljit Singh, Dyland Mangel, and Nar Ranabhat.
+An introduction to R for plant pathologists written by Dr. Sydney E. Everhart, Nikita Gambhir, Dr. Lucky Mehra, and Dr. Zhian N. Kamvar. At Kansas State Unversity, the workshop was taught by Dr. Lucky Mehra and Dr. Daljit Singh, and teaching assistance was provided by Dylan Mangel and Nar Ranabhat.
 
 This repository is intended to serve as an additional resource for a short 
 workshop given at Kansas State Univeristy. The source code can be found at https://github.com/mehraKSU/Intro_R_2019_REEU.

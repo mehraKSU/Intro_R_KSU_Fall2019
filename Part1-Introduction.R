@@ -519,8 +519,8 @@ summer[1:30, "month"]     # June
 summer[-c(1:30), "month"] # July
 
 
-# > Notice that we used `-c(1:31)`, what do you think this is doing? Why would 
-# > this give us the values for the month of April?
+# > Notice that we used `-c(1:30)`, what do you think this is doing? Why would 
+# > this give us the values for the month of July?
 # 
 # We can use the `ifelse()` function to replace the values in our column.  How 
 # do we use this function?  A good first step to figuring out how you can use a 
@@ -536,7 +536,7 @@ summer[-c(1:30), "month"] # July
 
 # In order to use `ifelse`, we will need to provide three things:
 # 
-#  1. A logical question about the elements of an object   : spring$month == 3
+#  1. A logical question about the elements of an object   : summer$month == 6
 #  2. Values for TRUE elements                             : "June"
 #  3. Values for FALSE elements                            : "July"
 

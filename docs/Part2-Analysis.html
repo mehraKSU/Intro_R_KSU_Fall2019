@@ -463,10 +463,9 @@ div.tocify {
 <pre class="r"><code>&gt; list.files(&quot;.&quot;)</code></pre>
 <pre><code> [1] &quot;data&quot;                    &quot;docs&quot;                   
  [3] &quot;Intro_R_2019_REEU.Rproj&quot; &quot;LICENSE&quot;                
- [5] &quot;Makefile&quot;                &quot;Part1-Introduction.html&quot;
- [7] &quot;Part1-Introduction.R&quot;    &quot;Part2-Analysis.R&quot;       
- [9] &quot;Part3-Visualization.R&quot;   &quot;README.html&quot;            
-[11] &quot;README.md&quot;              </code></pre>
+ [5] &quot;Makefile&quot;                &quot;Part1-Introduction.R&quot;   
+ [7] &quot;Part2-Analysis.R&quot;        &quot;Part3-Visualization.R&quot;  
+ [9] &quot;README.md&quot;               &quot;results&quot;                </code></pre>
 <p>You can see that the first entry in here is “data”. This is where we’ve placed the field_data example data.</p>
 <pre class="r"><code>&gt; list.files(&quot;data&quot;)</code></pre>
 <pre><code>[1] &quot;fungicide_dat.csv&quot; &quot;README.md&quot;        </code></pre>
@@ -834,8 +833,9 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 2 Fungicide_A     6
 3 Fungicide_B     6</code></pre>
 <p>Now that we have answered our first two questions, what if we wanted to use these data as a table in a paper, we should export it to a csv file. We can do this using the function <code>write.table()</code>. Before that, let’s create a new directory (or folder) named results. We can do this using the function <code>dir.create()</code>.</p>
-<pre class="r"><code>&gt; dir.create(&quot;results&quot;)
-&gt; write.table(severity_dat, file = &quot;results/severity_dat.csv&quot;, sep = &quot;,&quot;, 
+<pre class="r"><code>&gt; dir.create(&quot;results&quot;)</code></pre>
+<pre><code>Warning in dir.create(&quot;results&quot;): &#39;results&#39; already exists</code></pre>
+<pre class="r"><code>&gt; write.table(severity_dat, file = &quot;results/severity_dat.csv&quot;, sep = &quot;,&quot;, 
 +             col.names = TRUE, 
 +             row.names = FALSE)</code></pre>
 </div>
