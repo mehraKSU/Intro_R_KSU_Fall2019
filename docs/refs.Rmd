@@ -13,7 +13,6 @@ title: "References"
  - [RStudio Cheat Sheets] great visual maps for data analysis (highly recommend the dplyr, data import, and ggplot2 sheets!)
  - [R style guide] to make sure your code is beautiful because when your code is
    easy to read, your future self will thank you.
- - [UNL Statistics Help Desk] Statistical Cross-disciplinary Collaboration and Consulting Lab (SC3L)
  - [CRAN task views] Grouping notable packages in specific topics such as
    Phylogenetics, Time Series, Experimental Design, etc.
  - [Happy Git and GitHub for the useR] a long-form tutorial on working
