@@ -14,7 +14,7 @@
 # Step 1: How to use this R script
 # ---------------------------------
 # 
-# A script is a text document that contains instructions and commands The # 
+# A script is a text document that contains instructions and commands. The # 
 # symbol is used to leave comments, which R will not try to interpret as a 
 # command.
 # 
@@ -238,17 +238,17 @@ length(name)
 
 # Let's compare this to a vector that contains only numeric data. For this 
 # example, let's create three objects to represent today's date in numbers for
-# the month (06), day (27), and year (2019).
+# the month (11), day (01), and year (2019).
 
-month <- 06
-day <- 27
+month <- 11
+day <- 01
 year <- 2019
 
 # combine those three objects using the *combine* function:
 today <- c(month, day, year)
 
 # Inspect this object by typing the name `today` at the command line. You'll see
-# that R has eliminated the zero that preceeds the 6 and has kept the order we 
+# that R has eliminated the zero that preceeds the 1 and has kept the order we 
 # provided for these elements in the vector.  Let's take a look at the structure of
 # today.
 
@@ -259,9 +259,9 @@ str(today)
 # 
 # Let's do the same thing using the name June for month and see how that changes
 # our vector. Notice that we are not modifying the object *month*, we are simply
-# combining our two existing objects with the word "June".
+# combining our two existing objects with the word "November".
 
-c("June", day, year)   
+c("November", day, year)   
 
 # In this case we didn't re-assign the object named `today`. To inspect the 
 # structure of this vector, we can wrap the statement within the str() function,
@@ -269,8 +269,8 @@ c("June", day, year)
 # character) using the function class().  Don't forget to use the up-arrow to
 # access the last line that you ran!
 
-str(c("June", day, year)) # this shows us the structure of the object
-class(c("June", day, year))
+str(c("November", day, year)) # this shows us the structure of the object
+class(c("November", day, year))
 
 # Notice how R is trying to keep our data organized according to type.  Rather
 # than coding this vector as containing numbers and characters, it has decided
@@ -281,9 +281,9 @@ class(c("June", day, year))
 # 
 # ```
 #   day   month   year
-#   1     6       2019
-#   2     6       2019
-#   3     6       2019
+#   1     11       2019
+#   2     11       2019
+#   3     11       2019
 #   ...
 # ```
 # 
@@ -303,11 +303,11 @@ day <- 1:30
 # to repeat each of them a total of 30 times because we need to repeat each, 
 # once for each day.
 # 
-# We can easily repeat the number 6 a total of 30 times using the function 
+# We can easily repeat the number 11 a total of 30 times using the function 
 # `rep()`, specifying how many `times` we should repeat this object. Let's
-# assign `3` to `month` and modify the object month to contain 30 copies.
+# assign `11` to `month` and modify the object month to contain 30 copies.
 
-month <- 6
+month <- 11
 month <- rep(month, times = 30)
 month
 
@@ -321,7 +321,7 @@ length(month)
 day[18]  
 month[18] # the number inside the brackets corresponds to location of element in list, not value
 
-# In this case, the 18th element in `day` is 18, and the 18th element in `month` is 6
+# In this case, the 18th element in `day` is 18, and the 18th element in `month` is 11
 # which confirms that we created this correctly.
 # 
 # > Type `day[32]` into your R console. What do you get? What does it mean? Ask
@@ -352,9 +352,9 @@ length(year)
 # 
 # ```
 #   day   month   year
-#   1     6       2019
-#   2     6       2019
-#   3     6       2019
+#   1     11       2019
+#   2     11       2019
+#   3     11       2019
 #   ...
 # ```
 # 
@@ -363,49 +363,49 @@ length(year)
 # the function, we just have to specify name of the column and populate it with
 # vector data.
 
-June <- data.frame(day = day, month = month, year = year)
+November <- data.frame(day = day, month = month, year = year)
 
 # Let's inspect this new object in the same way as vectors:
 
-June
-length(June)
+November
+length(November)
 
-# Using the `length()` function, we see it says 3. This is because `June` has three
+# Using the `length()` function, we see it says 3. This is because `November` has three
 # columns: day, month, and year. A data frame is a two-dimensional object which
 # stores its information in rows and columns. 
 # 
 # Because this is a 2-dimensional object, we can inspect the dimensions using
 # the `dim()` function:
 
-dim(June)
+dim(November)
 
 # This tells us that we have 30 rows and 3 columns. R also provides the `nrow()`
 # and `ncol()` functions to make it easier to remember which is which:
 
-nrow(June)
-ncol(June)
+nrow(November)
+ncol(November)
 
 # What happens when we use the `str()` function?
 
-str(June)
+str(November)
 
 # We can see that it's listing the columns we have in our table and showing us
 # how they are represented. Notice the `$` to the left of each column name, 
 # this is how we access the columns of the data frame:
 
-June$day
-June$month
-June$year
+November$day
+November$month
+November$year
 
 # You can see that these are the same as the vectors we created earlier.
 
-June
+November
 
 # Because this object is rather large, we didn't get to see the top rows of the 
 # obect.  A quick way to look at the top of the object is with the `head()`
 # function, and if we wanted to look at the bottom, we would use `tail()`.
 
-head(June)  # if this didn't work, double-check that you spelled the object name correctly
+head(November)  # if this didn't work, double-check that you spelled the object name correctly
 
 # Now that we have our table, the question becomes, how do we inspect different elements?
 # 
@@ -415,20 +415,20 @@ head(June)  # if this didn't work, double-check that you spelled the object name
 # by specifying `[row, column]`. These are analagous to X and Y Cartesian 
 # coordinates. Let's take a look at the elements in the 18th row, separately:
 
-June[18, 1] # day
-June[18, "month"] # you can use characters when the elements are named!
-June[18, 3] # year
-June[18, -3] # here `-` means all columns except the third (year)
-June[18, -2] # day and year
+November[18, 1] # day
+November[18, "month"] # you can use characters when the elements are named!
+November[18, 3] # year
+November[18, -3] # here `-` means all columns except the third (year)
+November[18, -2] # day and year
 
 # If we don't specify a dimension, R will give us the entire contents of that
 # dimension. Let's look at the row that contains today's date:
 
-June[18, ]
+November[18, ]
 
 # You can also use this to access just one column of the matrix.  Let's look at month:
 
-June[, 2]
+November[, 2]
 
 # Notice, however that this result now appears to be a vector! This is because
 # of a sneaky default option called `drop = TRUE`. R tries to "help" by removing
@@ -436,41 +436,41 @@ June[, 2]
 # to keep this as a data frame, you can turn off this option *inside the 
 # brackets*:
 
-June[, 2, drop = FALSE]
+November[, 2, drop = FALSE]
 
-# Now that we've inspected the object `June`, let's create the same thing for
-# the month of July. How should we do this?
+# Now that we've inspected the object `November`, let's create the same thing for
+# the month of December. How should we do this?
 
 # One option would be to create new obects for day, month, and year and combine
-# them just like we did for June  What is the simplest method to do this, using
+# them just like we did for November. What is the simplest method to do this, using
 # the fewest number of steps? 
 
-# We can simply make a copy of `June` and add a vector with information about
+# We can simply make a copy of `November` and add a vector with information about
 # the 31st day.
 
-July <- June
+December <- November
 
-July[31,] <- c(31, 6, 2019)
+December[31,] <- c(31, 11, 2019)
 
 # Inspect what we have now:
 
-str(July)  # we have three columns
-tail(July) # we have 31 days
+str(December)  # we have three columns
+tail(December) # we have 31 days
 
-# We need to change the month column so that it says 7 instead of 6, how can we
+# We need to change the month column so that it says 12 instead of 11, how can we
 # do this?  Let's just look at the column first:
 
-July$month
+December$month
 
 # We need to add 1 to each of these values, so let's try that!
 
-July$month + 1
+December$month + 1
 
-# This worked, so now we just need to replace values in July[,2] with the new
+# This worked, so now we just need to replace values in December[,2] or December$month with the new
 # expression:
 
-July$month <- July$month + 1    # Did it work?
-str(July)
+December$month <- December$month + 1    # Did it work?
+str(December)
 
 # Let's combine both of these tables into one.  R provides two functions that can help 
 # us with that called `rbind()` and `cbind()`, which bind a data frame with a vector 
@@ -480,47 +480,47 @@ str(July)
 # ### Exercise 3: Use `cbind()` and `rbind()` to figure out the correct  
 # ### function to stack the tables one below the other.
 
-cbind(June, July) # Do you think it will work?
+cbind(November, December) # Do you think it will work?
 
 # We have an error! R is trying to stack them side by side and is failing to do so because 
 # of different number of rows.
 
-rbind(June, July) # This works!
-summer <- rbind(June, July)
+rbind(November, December) # This works!
+winter <- rbind(November, December)
 
 # Inspect this object to ensure it was made correctly. 
 
-str(summer)
-head(summer)
-tail(summer)
+str(winter)
+head(winter)
+tail(winter)
 
-# We now have a new object summer that contains only numeric data. Let's revise
+# We now have a new object winter that contains only numeric data. Let's revise
 # this object so that it uses names for the month instead of numbers.  We want
 # it to look like this:
 # ```
 #   day   month   year  
-#   1     "June"   2019  
-#   2     "June"   2019  
-#   3     "June"   2019
+#   1     "November"   2019  
+#   2     "November"   2019  
+#   3     "November"   2019
 #   ...
 # ```
 
-# Months need to be changed from the number 6 to "June" and from 7 to "July" in
+# Months need to be changed from the number 11 to "November" and from 12 to "December" in
 # the second column.  Let's first look at the month column.
 
-summer$month
+winter$month
 
-# We want to specify only the cells in this list that are 6 and replace thme with
-# "June". We know that rows 1
-# to 30 contain 6's and the rest contain 7's, which means we can inspect
-# those rows in the object spring:
+# We want to specify only the cells in this list that are 11 and replace thme with
+# "November". We know that rows 1
+# to 30 contain 11s and the rest contain 12s, which means we can inspect
+# those rows in the object winter:
 
-summer[1:30, "month"]     # June
-summer[-c(1:30), "month"] # July
+winter[1:30, "month"]     # November
+winter[-c(1:30), "month"] # December
 
 
 # > Notice that we used `-c(1:30)`, what do you think this is doing? Why would 
-# > this give us the values for the month of July?
+# > this give us the values for the month of December?
 # 
 # We can use the `ifelse()` function to replace the values in our column.  How 
 # do we use this function?  A good first step to figuring out how you can use a 
@@ -536,30 +536,30 @@ summer[-c(1:30), "month"] # July
 
 # In order to use `ifelse`, we will need to provide three things:
 # 
-#  1. A logical question about the elements of an object   : summer$month == 6
-#  2. Values for TRUE elements                             : "June"
-#  3. Values for FALSE elements                            : "July"
+#  1. A logical question about the elements of an object   : winter$month == 11
+#  2. Values for TRUE elements                             : "November"
+#  3. Values for FALSE elements                            : "December"
 
-ifelse(summer$month == 6, yes = "June", no = "July")
+ifelse(winter$month == 11, yes = "November", no = "December")
 
-summer$month <- ifelse(summer$month == 6, yes = "June", no = "July")
+winter$month <- ifelse(winter$month == 11, yes = "November", no = "December")
 
 # > Notice that we had to use `==` to indicate equality. This is so that R 
 # > doesn't get confused and assume we are using the argument assignment, `=`.
 
 # Now, let's inspect summer 
 
-str(summer)
-head(summer)
+str(winter)
+head(winter)
 
 # Let's change first letter of every column name to uppercase i.e., replace  
 # "day" with "Day" and so on.  We can do this using `colnames()` function.
 
-colnames(summer) # Current column names
+colnames(winter) # Current column names
 
-colnames(summer) <- c("Day", "Month", "Year") # New column names
+colnames(winter) <- c("Day", "Month", "Year") # New column names
 
 # Let's inspect spring again. 
-str(summer)
-head(summer)
+str(winter)
+head(winter)
 
