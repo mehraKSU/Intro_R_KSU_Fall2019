@@ -60,7 +60,8 @@ fungicide <- read.csv("data/fungicide_dat.csv") # read.csv automatically outputs
 # 2. What should be on the axes?
 # 3. Should we use lines, points, bars, boxplots, etc? 
 # 
-# To help facilitate your thinking, you may refer to the cheatsheet provided in the 'Help' tab
+# To help facilitate your thinking, you may refer to the cheatsheet provided in the 'Help' tab (next to the Tools tab in the
+# main menu bar.)
 # 
 # 
 # Step 1: Creating our plot
