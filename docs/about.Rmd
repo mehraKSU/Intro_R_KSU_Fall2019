@@ -27,3 +27,10 @@ This website was built using R and Rmarkdown.
 
 Github: https://github.com/mehraKSU/Intro_R_KSU_Fall2019
 
+Contact information of presenters
+---------------------------------
+Dr. Lucky Mehra; email: [luckymehra@ksu.edu](luckymehra@ksu.edu)
+Emily Delorean; email: [emilydelorean@ksu.edu](emilydelorean@ksu.edu)
+Nar Ranabhat; email: [narrb@ksu.edu](narrb@ksu.edu)
+Dylan Mangel; email: [dmangel@ksu.edu](dmangel@ksu.edu)
+
